@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpo221e4sw66f"]
+
+[ext_resource type="Script" path="res://Apple.gd" id="1_8mm82"]
+[ext_resource type="Texture2D" uid="uid://csqe0lpfyptqw" path="res://art/manzana.png" id="2_vcobx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i28mm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vcobx")
+}],
+"loop": true,
+"name": &"apple",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ba8h"]
+radius = 17.5
+height = 35.0
+
+[node name="Apple" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_8mm82")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.17, 0.17)
+sprite_frames = SubResource("SpriteFrames_i28mm")
+animation = &"apple"
+frame_progress = 0.572706
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7ba8h")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

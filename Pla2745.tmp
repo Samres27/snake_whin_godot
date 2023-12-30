@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://jvcjhn45pptk"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_bplxk"]
+[ext_resource type="PackedScene" uid="uid://c7y1dq4pjcbkq" path="res://body_snake.tscn" id="2_2khva"]
+
+[node name="Player" type="Node"]
+script = ExtResource("1_bplxk")
+speed = null
+body_snake = ExtResource("2_2khva")

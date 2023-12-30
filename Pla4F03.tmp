@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://jvcjhn45pptk"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_bplxk"]
+[ext_resource type="Texture2D" uid="uid://by0bqliby7sga" path="res://art/cuerpo1.png" id="1_gwcxg"]
+[ext_resource type="Texture2D" uid="uid://bnynpgrbttwof" path="res://art/caraSRIGTH.png" id="2_5ey08"]
+[ext_resource type="Texture2D" uid="uid://d2ar0mo8vj3jw" path="res://art/caraSUP.png" id="4_8gvbs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ea7h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5ey08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_gwcxg")
+}],
+"loop": true,
+"name": &"Crigth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8gvbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_gwcxg")
+}],
+"loop": true,
+"name": &"Cup",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qdkcc"]
+radius = 93.0
+height = 187.2
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_bplxk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_7ea7h")
+animation = &"Crigth"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_qdkcc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

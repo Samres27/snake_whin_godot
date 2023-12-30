@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7y1dq4pjcbkq"]
+
+[ext_resource type="Texture2D" uid="uid://bnynpgrbttwof" path="res://art/caraSRIGTH.png" id="1_3yfow"]
+[ext_resource type="Script" path="res://body_snake.gd" id="1_cph6e"]
+[ext_resource type="Texture2D" uid="uid://by0bqliby7sga" path="res://art/cuerpo1.png" id="1_u4bid"]
+[ext_resource type="Texture2D" uid="uid://dpygre183aycl" path="res://art/cuerpo2.png" id="2_0gh1g"]
+[ext_resource type="Texture2D" uid="uid://d2ar0mo8vj3jw" path="res://art/caraSUP.png" id="2_1lykc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujq6i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0gh1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_u4bid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0gh1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_u4bid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0gh1g")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3yfow")
+}],
+"loop": true,
+"name": &"Hrigth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1lykc")
+}],
+"loop": true,
+"name": &"Hup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u4bid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0gh1g")
+}],
+"loop": true,
+"name": &"body1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0gh1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_u4bid")
+}],
+"loop": true,
+"name": &"body2",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gubus"]
+radius = 17.5
+height = 35.0
+
+[node name="BodySnake" type="Area2D"]
+script = ExtResource("1_cph6e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.17, 0.17)
+sprite_frames = SubResource("SpriteFrames_ujq6i")
+animation = &"Default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_gubus")
+one_way_collision_margin = 10.3
